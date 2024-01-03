@@ -1,10 +1,10 @@
 import './ItemJob.scss';
 
-const ItemJob = () => {
+const ItemJob = ({ title, desc }) => {
   return (
     <div className="wlgwnxkuca_item">
-      <div className="cnnpomcvrg_title">Title</div>
-      <div className="idzbwkwnte_desc">Description</div>
+      <div className="cnnpomcvrg_title">{title}</div>
+      <div className="idzbwkwnte_desc">{desc}</div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 .wlgwnxkuca_item {
   width: 100%;
   padding: 12px;
-  margin: 16px 0;
+  margin: 20px 0;
   background-color: #e4dcdc;
   border-radius: 20px;
 
@@ -14,6 +14,11 @@
   .idzbwkwnte_desc {
     font-weight: bold;
     font-size: 14px;
+    line-height: 26px;
     padding: 8px 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 }
