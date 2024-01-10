@@ -1,17 +1,12 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import ItemJob from './ItemJob';
 import './ListJob.scss';
 
 const List = ({ jobStatus }) => {
-  const [jobs, setJobs] = useState(() => {
-    const getLocalState = JSON.parse(localStorage.getItem('jobs'))
-    return getLocalState || []
-  })
+  const { jobs } = useSelector((state) => state.jobReducer);
 
   const handleDelete = (id) => {
-    const newJobs = jobs.filter((_, index) => index !== id)
-    setJobs(newJobs)
-    localStorage.setItem('jobs', JSON.stringify(newJobs))
+
   }
   return (
     <div className="fjtekxvnvt_list">

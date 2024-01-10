@@ -12,6 +12,9 @@ const jobSlice = createSlice({
     addJob: (state, action) => {
       state.jobs?.push(action.payload);
     },
+    listJob: (state, action) => {
+      state.jobs = action.payload
+    }
   },
 });
 
