@@ -11,27 +11,24 @@ const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
     title: "",
     desc: ""
   })
-  const [jobs, setJobs] = useState([])
 
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const handleSubmit = () => {
-    dispatch(addJob(job))
-    // setJobs((prev) => {
-    //   const newJob = { ...job }
-    //   const newJobs = [...prev, newJob]
-    //   return newJobs
-    // })
-  };
 
-  const onFinish = (values) => {
-    console.log('Success:', values);
+  const onFinish = (data) => {
+    dispatch(
+      addJob({
+        title: data.title,
+        desc: data.desc,
+      })
+    )
+    setJob('')
+    setIsModalOpen(false);
   };
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
-
 
   return (
     <Modal
@@ -58,7 +55,8 @@ const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
             ]}
           >
             <div className="sngsycqtd">
-              <Input placeholder='Title'
+              <Input
+                placeholder='Title'
                 className='gulonzrnvp'
                 value={job.title}
                 onChange={(e) => setJob({ ...job, title: e.target.value })}
@@ -75,7 +73,8 @@ const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
             ]}
           >
             <div className="sngsycqtd">
-              <TextArea placeholder='Description'
+              <TextArea
+                placeholder='Description'
                 className='gulonzrnvp'
                 value={job.desc}
                 onChange={(e) => setJob({ ...job, desc: e.target.value })}
@@ -85,9 +84,9 @@ const ModalForm = ({ isModalOpen, setIsModalOpen }) => {
 
           <Form.Item>
             <div className="bydbefjekd">
-              <Button type="primary"
+              <Button
+                type="primary"
                 htmlType="submit"
-                onClick={() => handleSubmit()}
               >
                 SUBMIT
               </Button>
